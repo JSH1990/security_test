@@ -7,8 +7,20 @@
            http://www.springframework.org/schema/security/spring-security.xsd">
 
     <http auto-config='true' use-expressions='true'>
-        <intercept-url pattern="/resources/**"	access="permitAll"/>
-        <intercept-url pattern="/login/**"      access="permitAll" />
+        <intercept-url pattern="/api/v1/auth/**" access="permitAll" />
+        <intercept-url pattern="/" access="permitAll" />
+        <intercept-url pattern="/v2/api-docs" access="permitAll" />
+        <intercept-url pattern="/swagger-resources/**" access="permitAll" />
+        <intercept-url pattern="/swagger-ui/index.html" access="permitAll" />
+        <intercept-url pattern="/swagger-ui.html" access="permitAll" />
+        <intercept-url pattern="/webjars/**" access="permitAll" />
+        <intercept-url pattern="/swagger/**" access="permitAll" />
+        <intercept-url pattern="/h2-console/**" access="permitAll" />
+        <intercept-url pattern="/favicon.ico" access="permitAll" />
+
+        <!-- Permit all access to static resources and login paths -->
+        <intercept-url pattern="/resources/**" access="permitAll" />
+        <intercept-url pattern="/login/**" access="permitAll" />
 
         <!-- 'ROLE_USER'인 사용자만 접근하게 설정 -->
         <intercept-url pattern="/**" access="hasRole('ROLE_ADMIN')" />
